@@ -39,7 +39,10 @@
             required: gettextCatalog.getString('You need an email address'),
             email: gettextCatalog.getString('Email address needs to be valid'),
             valid: gettextCatalog.getString('Nice email address!')
-          }
+          },
+          addons: [ {
+            icon: 'glyphicon glyphicon-envelope'
+          }]
         },
         {
           label: '',
@@ -48,7 +51,11 @@
           type: 'password',
           attr: {
             required: true
-          }
+          },
+          addons: [{
+            icon: 'glyphicon glyphicon-lock'
+          }]
+
         },
         {
           property: 'rememberMe',
@@ -70,6 +77,8 @@
       };
 
       $scope.socialLogin = function (provider) {
+        console.debug('url:' + CoreService.env.siteUrl);
+        console.debug('authPath:' + provider);
         window.location = CoreService.env.siteUrl + provider.authPath;
       };
 
@@ -82,7 +91,6 @@
       });
 
       $scope.login = function () {
-
 
         $scope.loginResult = User.login({
             include: 'user',

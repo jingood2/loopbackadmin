@@ -13,7 +13,7 @@ module.exports = function(app) {
     var settings = [{
       type: 'string',
       key: 'appName',
-      value: 'LoopBack Admin'
+      value: 'Call Planner'
     }, {
       type: 'select',
       key: 'appTheme',
@@ -27,7 +27,7 @@ module.exports = function(app) {
       key: 'appLayout',
       value: 'fixed',
       options: [
-        'skin-blue',
+	'fixed',
         'not-fixed'
       ]
     }, {

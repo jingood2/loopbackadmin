@@ -13,6 +13,8 @@
    **/
     .controller('LayoutCtrl', function ($scope, $rootScope, $cookies, CoreService, gettextCatalog) {
 
+
+
       // angular translate
       $scope.locale = {
         isopen: false
@@ -34,9 +36,9 @@
         gettextCatalog.setCurrentLanguage($scope.locale.lang);
       };
 
-      $scope.appName = 'LoopBack Admin';
+      $scope.appName = 'Call Planner';
       $scope.apiUrl = CoreService.env.apiUrl;
-      $scope.appTheme = 'skin-blue';
+      $scope.appTheme = 'skin-black';
       $scope.appThemes = [
         {
           'name': 'Black',
@@ -51,7 +53,7 @@
       $scope.appLayouts = [
         {
           'name': 'Fixed',
-          'class': 'fixed'
+          'class': 'not-fixed'
         },
         {
           'name': 'Scrolling',
@@ -61,6 +63,27 @@
 
       $scope.toggleSidebar = function () {
         var $ = angular.element;
+
+        console.log('Click toggleSidebar:'+ $(window).width());
+
+        //if ($(window).width() > (screenSizes.sm - 1)) {
+        if ($(window).width() > (768 - 1)) {
+          if ($("body").hasClass('sidebar-collapse')) {
+            $("body").removeClass('sidebar-collapse').trigger('expanded.pushMenu');
+          } else {
+            $("body").addClass('sidebar-collapse').trigger('collapsed.pushMenu');
+          }
+        }
+        //Handle sidebar push menu for small screens
+        else {
+          if ($("body").hasClass('sidebar-open')) {
+            $("body").removeClass('sidebar-open').removeClass('sidebar-collapse').trigger('collapsed.pushMenu');
+          } else {
+            $("body").addClass('sidebar-open').trigger('expanded.pushMenu');
+          }
+        }
+
+        /*
         if ($(window).width() <= 992) {
           $('.row-offcanvas').toggleClass('active');
           $('.left-side').removeClass('collapse-left');
@@ -71,6 +94,7 @@
           $('.left-side').toggleClass('collapse-left');
           $('.right-side').toggleClass('strech');
         }
+        */
       };
 
       $scope.settings = $rootScope.settings;

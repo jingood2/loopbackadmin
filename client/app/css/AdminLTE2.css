@@ -3040,7 +3040,10 @@ table.text-center th {
 }
 .login-page,
 .register-page {
+  /*
   background: url('../images/hero-bg.jpg') repeat center center fixed;
+  */
+  background-color: #d2d6de; 
   background-size: cover;
 }
 .login-box,

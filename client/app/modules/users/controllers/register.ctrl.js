@@ -20,19 +20,24 @@
         password: ''
       };
 
-      $scope.schema = [{
+      $scope.schema = [ 
+      {
         label: '',
         property: 'firstName',
         placeholder: gettextCatalog.getString('First Name'),
         type: 'text',
         attr: {
-          ngMinlength: 4,
+          ngMinlength: 2,
           required: true
         },
         msgs: {
           minlength: gettextCatalog.getString(
             'Needs to have at least 4 characters')
-        }
+        },
+        addons: [ {
+            icon: 'glyphicon glyphicon-user'
+        }]
+        
       }, {
         label: '',
         property: 'lastName',
@@ -45,8 +50,12 @@
         msgs: {
           minlength: gettextCatalog.getString(
             'Needs to have at least 4 characters')
-        }
-      }, {
+        },
+        addons: [ {
+            icon: 'glyphicon glyphicon-user'
+        }]
+      }, 
+      {
         label: '',
         property: 'email',
         placeholder: gettextCatalog.getString('Email'),
@@ -61,7 +70,10 @@
           required: gettextCatalog.getString('You need an email address'),
           email: gettextCatalog.getString('Email address needs to be valid'),
           valid: gettextCatalog.getString('Nice email address!')
-        }
+        },
+        addons: [ {
+            icon: 'glyphicon glyphicon-envelope'
+        }]
       }, {
         type: 'multiple',
         fields: [{
@@ -72,7 +84,10 @@
           attr: {
             required: true,
             ngMinlength: 6
-          }
+          },
+          addons: [ {
+            icon: 'glyphicon glyphicon-lock'
+          }]
         }, {
           label: '',
           property: 'confirmPassword',
@@ -86,7 +101,10 @@
           msgs: {
             match: gettextCatalog.getString(
               'Your passwords need to match')
-          }
+          },
+          addons: [ {
+            icon: 'glyphicon glyphicon-log-in'
+          }]
         }],
         columns: 6
       }];
