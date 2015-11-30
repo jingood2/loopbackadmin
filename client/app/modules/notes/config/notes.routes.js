@@ -9,6 +9,14 @@
           url: '/notes',
           templateUrl: 'modules/notes/views/main.html'
         })
+        .state('app.notes.timeline',{
+          url: '',
+          templateUrl: 'modules/notes/views/timeline.html',
+          controllerAs: 'ctrl',
+          controller: function (notes) {
+            this.notes = notes;
+          }
+        })
         .state('app.notes.list', {
           url: '',
           templateUrl: 'modules/notes/views/list.html',

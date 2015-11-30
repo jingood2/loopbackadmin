@@ -1,15 +1,64 @@
+<div class="wrapper">
 <header class="main-header">
-  <a class="logo" href="/">
-    <!--
-    {{ getSetting('appName') }}
-    -->
-
+  <a  href="/" class="logo">
+   <span class="logo-lg"><b>Call</b>Planner</span>
    <span class="logo-mini"><b>C</b>P</span>
-
-    <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Call</b>Planner</span>
   </a>
+  <!--
   <navbar></navbar>
+  -->
+
+  <nav class="navbar navbar-static-top" role="navigation">
+  <!-- Sidebar toggle button-->
+  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" ng-click="toggleSidebar()" role="button">
+    <span class="sr-only">Toggle navigation</span>
+  </a>
+
+  <div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+    <!--
+      <li class="dropdown user user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-flag flag-icon flag-icon-{{selectLocale.country.toLowerCase() }}"></i>
+          {{ selectLocale.name | translate }} <i class="caret"></i> </span>
+        </a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="(index, locale) in locales" ng-show="locale != selectLocale">
+            <a ng-click="setLocale(index)">
+              <span class="flag-icon flag-icon-{{locale.country.toLowerCase() }}"></span> {{locale.name | translate }}
+            </a>
+          </li>
+        </ul>
+      </li>
+      -->
+      <li class="dropdown user user-menu">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+           <img gravatar-src="currentUser.email" class="img-circle" gravatar-size="24" alt="User Image">
+          <span>{{currentUser.firstName || currentUser.profiles[0].profile.name.givenName}}<i class="caret"></i></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="user-header bg-light-blue">
+            <img gravatar-src="currentUser.email" class="img-circle" alt="User Image">
+
+            <p>
+              {{currentUser.firstName || currentUser.profiles[0].profile.displayName}}
+              <small>{{currentUser.email}}</small>
+            </p>
+          </li>
+          <li class="user-footer">
+            <div class="pull-left">
+              <a ui-sref="app.users.profile" class="btn btn-default btn-flat" translate>Profile</a>
+            </div>
+            <div class="pull-right">
+              <a ng-click="logout()" class="btn btn-default btn-flat" translate>Sign out</a>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 </header>
 <!--
 <div>
@@ -50,10 +99,10 @@
 -->
 
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar">
+<aside class="main-sidebar" >
 
    <!-- sidebar: style can be found in sidebar.less -->
-  <section class="sidebar">
+  <section class="sidebar" ng-mouseover="expandOnHover()" ng-mouseleave="collapseOnLeave()">
 
     <!-- Sidebar user panel -->
     <div class="user-panel">
@@ -74,6 +123,7 @@
     <ul class="sidebar-menu">
       <li ng-repeat="item in menuoptions" ui-sref-active="active">
         <a class="" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> {{item.name | translate}}</a>
+
       </li> 
     </ul>
   </section>
@@ -83,4 +133,4 @@
 <div class="content-wrapper">
   <div ui-view></div>
 </div>
-
+</div> 

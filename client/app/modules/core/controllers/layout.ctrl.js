@@ -13,8 +13,6 @@
    **/
     .controller('LayoutCtrl', function ($scope, $rootScope, $cookies, CoreService, gettextCatalog) {
 
-
-
       // angular translate
       $scope.locale = {
         isopen: false
@@ -64,22 +62,31 @@
       $scope.toggleSidebar = function () {
         var $ = angular.element;
 
-        console.log('Click toggleSidebar:'+ $(window).width());
+        var screenSizes = {
+              xs: 480,
+              sm: 768,
+              md: 992,
+              lg: 1200
+            }
 
-        //if ($(window).width() > (screenSizes.sm - 1)) {
-        if ($(window).width() > (768 - 1)) {
+
+        if ($(window).width() > (screenSizes.sm - 1)) {
           if ($("body").hasClass('sidebar-collapse')) {
-            $("body").removeClass('sidebar-collapse').trigger('expanded.pushMenu');
+            //$("body").removeClass('sidebar-collapse').trigger('expanded.pushMenu');
+            $("body").removeClass('sidebar-collapse');
           } else {
-            $("body").addClass('sidebar-collapse').trigger('collapsed.pushMenu');
+            //$("body").addClass('sidebar-collapse').trigger('collapsed.pushMenu');
+            $("body").addClass('sidebar-collapse');
           }
         }
         //Handle sidebar push menu for small screens
         else {
           if ($("body").hasClass('sidebar-open')) {
-            $("body").removeClass('sidebar-open').removeClass('sidebar-collapse').trigger('collapsed.pushMenu');
+            //$("body").removeClass('sidebar-open').removeClass('sidebar-collapse').trigger('collapsed.pushMenu');
+            $("body").removeClass('sidebar-open').removeClass('sidebar-collapse');
           } else {
-            $("body").addClass('sidebar-open').trigger('expanded.pushMenu');
+            //$("body").addClass('sidebar-open').trigger('expanded.pushMenu');
+            $("body").addClass('sidebar-open');
           }
         }
 
@@ -96,6 +103,53 @@
         }
         */
       };
+
+      $scope.expandOnHover = function() {
+
+        var $ = angular.element;
+
+        var screenSizes = {
+              xs: 480,
+              sm: 768,
+              md: 992,
+              lg: 1200
+            }
+
+        var screenWidth = screenSizes.sm - 1;    
+
+        if ($('body').hasClass('sidebar-mini')
+              && $("body").hasClass('sidebar-collapse')
+              && $(window).width() > screenWidth) {
+          $("body").removeClass('sidebar-collapse');
+        }      
+
+        /*
+        if ($('body').hasClass('sidebar-mini')
+                && $(window).width() > screenWidth) {
+          $('body').addClass('sidebar-collapse');
+        }
+        */
+      };
+
+      $scope.collapseOnLeave = function() {
+
+        var $ = angular.element;
+
+        var screenSizes = {
+              xs: 480,
+              sm: 768,
+              md: 992,
+              lg: 1200
+            }
+
+        var screenWidth = screenSizes.sm - 1;
+
+        if ($('body').hasClass('sidebar-mini')
+                && $(window).width() > screenWidth) {
+          $('body').addClass('sidebar-collapse');
+        }
+
+      }
 
       $scope.settings = $rootScope.settings;
 
