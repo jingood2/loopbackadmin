@@ -11,11 +11,7 @@
         })
         .state('app.notes.timeline',{
           url: '',
-          templateUrl: 'modules/notes/views/timeline.html',
-          controllerAs: 'ctrl',
-          controller: function (notes) {
-            this.notes = notes;
-          }
+          templateUrl: 'modules/notes/views/timeline.html'
         })
         .state('app.notes.list', {
           url: '',
