@@ -25,6 +25,7 @@
       'ngCookies',
       'ngResource',
       'ngRoute',
+      'ngMaterial',
       'ngSanitize',
       'ngTouch',
       'ui.bootstrap',

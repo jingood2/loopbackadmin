@@ -75,6 +75,29 @@
           url: '/autofields',
           templateUrl: 'modules/sandbox/views/autofields.html',
           controller: 'AutoFieldsCtrl'
+        })
+        .state('app.sandbox.ngmaterial', {
+          url: '/ngmaterial',
+          templateUrl: 'modules/sandbox/views/ngmaterial.html',
+          controller: 'NgMaterialCtrl'
+        })
+        .state('app.sandbox.autocomplete', {
+          url: '/autocomplete',
+          templateUrl: 'modules/sandbox/views/autocomplete.html',
+          controller: 'AutoCompleteCtrl',
+          controllerAs: 'ctrl'
+        })
+        .state('app.sandbox.dialog', {
+          url: '/dialog',
+          templateUrl: 'modules/sandbox/views/dialog.html',
+          controller: 'DialogCtrl',
+          controllerAs: 'ctrl'
+        })
+        .state('app.sandbox.contactchips', {
+          url: '/contactchips',
+          templateUrl: 'modules/sandbox/views/contactchips.html',
+          controller: 'ContactChipsCtrl',
+          controllerAs: 'ctrl'
         });
     });
 

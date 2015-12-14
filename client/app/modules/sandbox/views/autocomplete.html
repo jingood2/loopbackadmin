@@ -1,0 +1,18 @@
+<div layout="column" ng-cloak>
+  <md-content class="md-padding">
+    <form name="autocompleteForm">
+      <md-autocomplete required md-input-name="autocomplete" md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display">
+        <md-item-template>
+          <span md-highlight-text="searchText">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          No matches found.
+        </md-not-found>
+        <div ng-messages="autocompleteForm.autocomplete.$error">
+          <div ng-message="required">This field is required</div>
+        </div>
+      </md-autocomplete>
+    </form>
+  </md-content>
+</div>
+

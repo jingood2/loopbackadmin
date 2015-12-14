@@ -31,8 +31,20 @@
         name: 'Grid',
         sref: '.grid'
       }, {
+        name: 'Autocomplete',
+        sref: '.autocomplete'
+      },{
         name: 'Trees',
         sref: '.trees'
+      },{
+        name: 'NgMaterial',
+        sref: '.ngmaterial'
+      },{
+        name: 'Dialog',
+        sref: '.dialog'
+      },{
+        name: 'ContactChips',
+        sref: '.contactchips'
       }];
     });
 
