@@ -11,7 +11,7 @@
     .module('com.module.sandbox')
     .controller('DialogCtrl',demoCtrl);
 
-    function demoCtrl($scope, $mdDialog, $mdMedia) {
+    function demoCtrl($scope, $mdDialog, $mdMedia ,$mdSticky) {
 
       $scope.status = ' ';
       $scope.customFullscreen = $mdMedia('sm');
